@@ -3,6 +3,15 @@
 cap service to have managed associations , 1-1,1-many,many-many
 =======
 # Getting Started
+### odata query urls
+/odata/v4/data/Authors?$expand=books($expand=book);
+http://localhost:4004/z/Authors?$search=Ellis OR Emily&$expand=books($expand=book);
+http://localhost:4004/z/Books?$filter=title eq 'Wuthering Heights'&$expand=authors($expand=author):
+ http://localhost:4004/z/Authors?$search=Ellis OR Emily;
+http://localhost:4004/z/Authors/101?$expand=books,
+http://localhost:4004/z/Authors?$filter=books/$count gt 1&$expand=books($expand=author($expand=books($expand=author)));
+ http://localhost:4004/z/Authors?$filter=books/$count gt 1&$expand=books($select=title);
+http://localhost:4004/z/Authors?$expand=books($select=title);
 
 Welcome to your new project.
 
